@@ -490,7 +490,7 @@ namespace tinydeflate
 
   inline void compressor::find_match(uint pos, uint max_dist, uint max_match_len, uint &match_dist, uint &match_len)
   {
-    TDEFL_ASSERT(max_match_len <= MAX_MATCH_LEN); if (max_match_len < MIN_MATCH_LEN) return;
+    TDEFL_ASSERT(max_match_len <= MAX_MATCH_LEN); if (max_match_len <= match_len) return;
     int num_probes_left = m_max_probes;
     uint probe_len, probe_pos = pos, prev_dist = 0;
     const uint8 *r = m_dict + pos;
